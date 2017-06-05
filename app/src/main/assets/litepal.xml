@@ -1,0 +1,10 @@
+<litepal>
+
+    <dbname value = "express"/>
+
+    <version value = "1"/>
+
+    <list>
+        <mapping class="com.example.panfirst.db.Company"/>
+    </list>
+</litepal>
