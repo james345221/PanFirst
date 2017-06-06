@@ -1,13 +1,10 @@
-package com.example.panfirst.db;
+package com.example.panfirst.gson;
 
 /**
  * Created by asus-pc on 2017/6/5.
  */
 
-public class Company {
-
-    private String com;
-    private String no;
+public class CompanyName {
     public String getCom() {
         return com;
     }
@@ -24,5 +21,6 @@ public class Company {
         this.no = no;
     }
 
-
+    public String com;
+    public String no;
 }
