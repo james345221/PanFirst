@@ -23,4 +23,5 @@ public class CompanyName {
 
     public String com;
     public String no;
+    public String zone;
 }

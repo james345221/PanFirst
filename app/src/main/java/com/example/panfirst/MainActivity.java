@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             //有缓存时直接解析公司数据
             Company company = Utility.handleCompanyResponse(companyString);
             queryCompanies(company);
+            setAdapterInSpinner();
         }else {
             //无缓存时去服务器查询公司
 //            String address = "http://v.juhe.cn/exp/com?key=0d3a9f102a6ccc3627129e5f3522893e";
@@ -93,12 +94,7 @@ public class MainActivity extends AppCompatActivity {
             queryFromService(address);
         }
 
-        //将可选内容与ArrayAdapter连接起来
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dateList);
-        //设置下拉列表的风格
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //将adapter 添加到spinner中
-        spinner.setAdapter(adapter);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -155,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                             editor.putString("company",responseText);
                             editor.apply();
                             queryCompanies(company);
+                            setAdapterInSpinner();
                         }else {
                             Toast.makeText(MainActivity.this,"获取company失败，请检查网络",Toast.LENGTH_SHORT).show();
                         }
@@ -176,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     }
 
     @Override
@@ -187,5 +183,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    private void setAdapterInSpinner(){
+        //将可选内容与ArrayAdapter连接起来
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dateList);
+        //设置下拉列表的风格
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //将adapter 添加到spinner中
+        spinner.setAdapter(adapter);
     }
 }

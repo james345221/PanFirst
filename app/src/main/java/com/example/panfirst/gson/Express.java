@@ -9,17 +9,25 @@ import java.util.List;
  */
 
 public class Express {
-    public String company;
+   public String resultcode;
 
-    @SerializedName("com")
-    public String shortName;
+    public String reason;
 
-    @SerializedName("no")
-    public String num;
+    public Result result;
 
-    public String status;
+    public class Result{
+        public String company;
 
-    @SerializedName("list")
-    public List<ExpressContent> expressContentList;
+        @SerializedName("com")
+        public String shortName;
+
+        @SerializedName("no")
+        public String num;
+
+        public String status;
+
+        @SerializedName("list")
+        public List<ExpressContent> expressContentList;
+    }
 
 }

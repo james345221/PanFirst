@@ -3,6 +3,7 @@ package com.example.panfirst.util;
 import android.text.TextUtils;
 
 import com.example.panfirst.gson.Company;
+import com.example.panfirst.gson.Express;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,6 +28,19 @@ public class Utility {
 //                JSONArray jsonArray = jsonObject.getJSONArray("result");
 //                String company = jsonArray.getJSONObject(0).toString();
 //                    return new Gson().fromJson(company, Company.class);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return  null;
+    }
+
+    public static Express handleExpressResponse(String response){
+        if(!TextUtils.isEmpty(response)){
+            try {
+
+                return new Gson().fromJson(response,Express.class);
 
             }catch (Exception e){
                 e.printStackTrace();

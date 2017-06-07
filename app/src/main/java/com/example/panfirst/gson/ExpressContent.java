@@ -7,9 +7,19 @@ import java.util.StringTokenizer;
  */
 
 public class ExpressContent {
+    public String getDatetime() {
+        return datetime;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+
+
     public String datetime;
 
     public String remark;
 
-    public String zone;
+
 }
