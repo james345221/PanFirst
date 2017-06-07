@@ -2,6 +2,7 @@ package com.example.panfirst;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -64,7 +65,8 @@ public class ChooseAreaFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String CompanyName = companyNameList.get(position).getCom();
-                Toast.makeText(getActivity(),CompanyName,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),CompanyName,Toast.LENGTH_SHORT);
+
             }
         });
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -82,22 +84,7 @@ public class ChooseAreaFragment extends Fragment{
 
     }
 
-//    public void queryCompanies(){
-//        textView.setText("选择快递公司");
-//
-//        if(companyNameList.size()>0){
-//            dateList.clear();
-//            for(CompanyName companyName : companyNameList){
-//                dateList.add(companyName.getCom());
-//            }
-//            adapter.notifyDataSetChanged();
-//            listView.setSelection(0);
-//        }else{
-//            String addresss = "http://v.juhe.cn/exp/com?key=0d3a9f102a6ccc3627129e5f3522893e" ;
-//            queryFromService(addresss);
-//        }
-//
-//    }
+
 
     private void queryFromService(String addresss) {
         HttpUtil.sendOkHttpRequest(addresss, new Callback() {
